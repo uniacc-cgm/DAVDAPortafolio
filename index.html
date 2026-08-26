@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="es" class="lenis lenis-smooth">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DADVA — Dirección de Ambientes Virtuales de Aprendizaje | UNIACC</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <div class="preloader">
+        <div class="preloader-content">
+            <img src="img/logo_animado.gif" alt="Cargando DADVA" class="preloader-logo">
+            <div class="preloader-counter">0%</div>
+        </div>
+    </div>
+
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+
+    <div class="page-transition-overlay"></div>
+    <button class="close-transition">✕ Volver al portafolio</button>
+
+    <button id="backToTop" class="back-to-top hover-target" aria-label="Volver arriba">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
+    </button>
+
+    <!-- MODAL DETALLE PROYECTO -->
+    <div class="project-modal-overlay"></div>
+    <div class="project-modal">
+        <div class="modal-header">
+            <span class="modal-header-title">Detalle del proyecto</span>
+            <button class="close-panel hover-target">✕ Cerrar</button>
+            <div class="modal-scroll-indicator"></div>
+        </div>
+        <div class="modal-body" data-lenis-prevent>
+            <img src="" alt="Project Image" class="panel-img">
+            <div class="panel-body">
+                <span class="panel-badge"></span>
+                <h2 class="panel-title"></h2>
+                
+                <div class="panel-details">
+                    <div class="detail-block">
+                        <h4 class="text-extrabold">El reto</h4>
+                        <p class="panel-challenge"></p>
+                    </div>
+                    <div class="detail-block">
+                        <h4 class="text-extrabold">La solución</h4>
+                        <p class="panel-solution"></p>
+                    </div>
+                    <div class="detail-block">
+                        <h4 class="text-extrabold">El impacto</h4>
+                        <p class="panel-impact"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <header class="navbar fade-up">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <img src="img/logo.svg" alt="Logo UNIACC" class="nav-logo">
+                <span class="logo-text-group">
+                    <span class="logo-bold">DADVA</span> <span class="logo-sub">/ Ambientes Virtuales</span>
+                </span>
+            </a>
+            <nav class="nav-links">
+                <a href="#proyectos" class="link-hover hover-target">Casos de éxito</a>
+                <a href="#identidad-tabs" class="link-hover hover-target">Misión & Propósito</a>
+                <a href="#servicios" class="link-hover hover-target">Especialidades</a>
+                <a href="#metodologia" class="link-hover hover-target">Metodología</a>
+                <a href="#contacto" class="btn-nav hover-target">Iniciar proyecto</a>
+            </nav>
+        </div>
+        <div class="progress-bar"></div>
+    </header>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="hero">
+        <div class="hero-bg-wrapper">
+            <img src="img/hero.jpg" class="hero-bg-parallax" alt="DADVA Background" />
+        </div>
+        
+        <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80" alt="Elemento flotante" class="hero-floating-img hero-anim" />
+
+        <div class="hero-content">
+            <div class="hero-top-meta">
+                <span class="meta-tag text-smoke hero-anim-meta">Universidad UNIACC — Dirección académica</span>
+            </div>
+            
+            <h1 class="hero-title">
+                <span class="title-line"><span class="line-inner hero-anim text-extrabold text-smoke">Diseño tecnopedagógico</span></span>
+                <span class="title-line"><span class="line-inner hero-anim text-smoke" style="font-weight: 900;">&amp; factoría multimedia para</span></span>
+                <span class="title-line"><span class="line-inner hero-anim text-graphite" style="font-weight: 900;">educación superior</span></span>
+            </h1>
+
+            <div class="hero-bottom-grid">
+                <p class="hero-desc text-smoke hero-anim">
+                    Transformamos asignaturas, diplomados y posgrados en ecosistemas de aprendizaje interactivos bajo estándares internacionales e-learning y metodologías ágiles.
+                </p>
+                <div class="hero-cta-group hero-anim">
+                    <a href="#proyectos" class="btn-primary-agency btn-hero hover-target">Explorar portafolio <span class="arrow">↓</span></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MARQUESINA DINÁMICA -->
+    <div class="marquee-section fade-up">
+        <div class="marquee-inner">
+            <span>Innovación académica • Experiencia de usuario • Metodologías activas • Estándares OLC • Inteligencia Artificial • </span>
+            <span>Innovación académica • Experiencia de usuario • Metodologías activas • Estándares OLC • Inteligencia Artificial • </span>
+            <span>Innovación académica • Experiencia de usuario • Metodologías activas • Estándares OLC • Inteligencia Artificial • </span>
+            <span>Innovación académica • Experiencia de usuario • Metodologías activas • Estándares OLC • Inteligencia Artificial • </span>
+        </div>
+    </div>
+
+    <!-- SECCIÓN 01: TRABAJOS DESTACADOS -->
+    <section id="proyectos" class="work-section">
+        <div class="section-header fade-up">
+            <div class="header-left">
+                <span class="section-num">(01) / Portafolio</span>
+                <h2 class="section-heading">Trabajos <span class="text-extrabold">destacados</span></h2>
+            </div>
+            <p class="header-right">
+                Selección de proyectos de innovación académica, aulas virtuales Moodle y producciones multimedia desarrolladas para UNIACC y asociados.
+            </p>
+        </div>
+
+        <div class="projects-grid">
+            
+            <a href="#" class="project-card span-7 card-reveal hover-target"
+               data-title="Diseño de rutas e-learning bajo modelo ASSURE"
+               data-badge="Diseño tecnopedagógico"
+               data-challenge="El curso presentaba una alta carga cognitiva, material denso en PDF y baja participación estudiantil en los foros."
+               data-solution="Aplicación del modelo ASSURE para reestructurar el contenido en rutas de aprendizaje con microactividades progresivas."
+               data-impact="Incremento del 35% en la finalización de módulos semanales y mejora en las calificaciones generales del curso."
+               data-img="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1600&q=80">
+                <div class="media-container">
+                    <img class="media-parallax" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1600&q=80" alt="Diseño Instruccional" />
+                    <video class="hover-video" muted loop playsinline>
+                        <source src="https://cdn.pixabay.com/video/2019/11/13/29087-373977536_tiny.mp4" type="video/mp4" />
+                    </video>
+                    <div class="card-hover-overlay"><span class="hover-text">Ver proyecto ↗</span></div>
+                    <span class="card-badge">Diseño tecnopedagógico</span>
+                </div>
+                <div class="project-meta">
+                    <div>
+                        <h3 class="project-title">Diseño de rutas e-learning bajo <span class="text-extrabold">modelo ASSURE</span></h3>
+                        <p class="project-subtitle">Microactividades • Pregrado • Alineamiento constructivo</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="project-card span-5 offset-top card-reveal hover-target"
+               data-title="Control y gestión con metodologías ágiles"
+               data-badge="Scrum / Kanban"
+               data-challenge="Retrasos en la entrega de material pedagógico y falta de visibilidad en el avance de la producción multimedia."
+               data-solution="Implementación de metodologías ágiles (Scrum/Kanban) con sprints de 2 semanas y tableros de control visuales."
+               data-impact="Reducción del 40% en los tiempos de entrega y sincronización total entre el equipo de diseño y los docentes."
+               data-img="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80">
+                <div class="media-container">
+                    <img class="media-parallax" src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80" alt="Gestión de Proyectos" />
+                    <video class="hover-video" muted loop playsinline>
+                        <source src="https://cdn.pixabay.com/video/2021/08/17/85350-588720874_tiny.mp4" type="video/mp4" />
+                    </video>
+                    <div class="card-hover-overlay"><span class="hover-text">Ver proyecto ↗</span></div>
+                    <span class="card-badge highlight-badge">Scrum / Kanban</span>
+                </div>
+                <div class="project-meta">
+                    <div>
+                        <h3 class="project-title">Control y gestión con <span class="text-extrabold">metodologías ágiles</span></h3>
+                        <p class="project-subtitle">Sprints • Optimización de flujos • Entregas continuas</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="project-card span-5 card-reveal hover-target"
+               data-title="Creación de material didáctico e interactivos"
+               data-badge="Factoría / Genially"
+               data-challenge="El material de estudio tradicional no lograba captar la atención de los estudiantes de primer año."
+               data-solution="Desarrollo de objetos virtuales de aprendizaje (OVAs) mediante Genially y paquetización SCORM para Moodle."
+               data-impact="Aumento significativo en el engagement, con más de 1.500 interacciones por módulo gamificado."
+               data-img="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1600&q=80">
+                <div class="media-container">
+                    <img class="media-parallax" src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1600&q=80" alt="Interactivos Genially" />
+                    <video class="hover-video" muted loop playsinline>
+                        <source src="https://cdn.pixabay.com/video/2019/11/19/29272-374768341_tiny.mp4" type="video/mp4" />
+                    </video>
+                    <div class="card-hover-overlay"><span class="hover-text">Ver proyecto ↗</span></div>
+                    <span class="card-badge">Factoría / Genially</span>
+                </div>
+                <div class="project-meta">
+                    <div>
+                        <h3 class="project-title">Creación de material didáctico e <span class="text-extrabold">interactivos</span></h3>
+                        <p class="project-subtitle">Gamificación • Genially • SCORM</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="project-card span-7 offset-top card-reveal hover-target"
+               data-title="Serie de podcasts académicos de alta fidelidad"
+               data-badge="Audio / Streaming"
+               data-challenge="Los estudiantes de posgrado manifestaban falta de tiempo para leer extensos documentos frente a la pantalla."
+               data-solution="Creación de una serie de podcasts académicos con guionización instruccional, locución y diseño sonoro profesional."
+               data-impact="Los estudiantes pudieron estudiar en tránsito. El formato alcanzó un 90% de aprobación en las encuestas de UX."
+               data-img="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=1600&q=80">
+                <div class="media-container">
+                    <img class="media-parallax" src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=1600&q=80" alt="Podcast Académico" />
+                    <video class="hover-video" muted loop playsinline>
+                        <source src="https://cdn.pixabay.com/video/2021/06/18/78135-565451633_tiny.mp4" type="video/mp4" />
+                    </video>
+                    <div class="card-hover-overlay"><span class="hover-text">Ver proyecto ↗</span></div>
+                    <span class="card-badge highlight-badge">Audio / Streaming</span>
+                </div>
+                <div class="project-meta">
+                    <div>
+                        <h3 class="project-title">Serie de <span class="text-extrabold">podcasts</span> académicos de alta fidelidad</h3>
+                        <p class="project-subtitle">Guionización • Locución • Distribución LMS</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="project-card span-7 card-reveal hover-target"
+               data-title="Producción de videos con calidad estudio"
+               data-badge="Audiovisual / Animación"
+               data-challenge="Las clases magistrales en bruto resultaban en una rápida pérdida de retención visual del alumno."
+               data-solution="Producción de cápsulas de microlearning con calidad de estudio, utilizando motion graphics para explicar conceptos abstractos."
+               data-impact="Retención de la atención aumentada al 85% promedio por video y reducción de consultas básicas en los foros."
+               data-img="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1600&q=80">
+                <div class="media-container">
+                    <img class="media-parallax" src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1600&q=80" alt="Producción de Videos" />
+                    <video class="hover-video" muted loop playsinline>
+                        <source src="https://cdn.pixabay.com/video/2019/11/15/29166-374246834_tiny.mp4" type="video/mp4" />
+                    </video>
+                    <div class="card-hover-overlay"><span class="hover-text">Ver proyecto ↗</span></div>
+                    <span class="card-badge">Audiovisual / Animación</span>
+                </div>
+                <div class="project-meta">
+                    <div>
+                        <h3 class="project-title">Producción de <span class="text-extrabold">videos</span> con calidad estudio</h3>
+                        <p class="project-subtitle">Motion graphics • Edición • Posgrado</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="project-card span-5 offset-top card-reveal hover-target"
+               data-title="Redacción de apuntes estructurados"
+               data-badge="Diseño editorial"
+               data-challenge="Apuntes desestructurados y con mala legibilidad que dificultaban la lectura prolongada en dispositivos móviles."
+               data-solution="Rediseño editorial enfocado en la jerarquía visual, uso de espacios en blanco y maquetación amigable para pantallas."
+               data-impact="Mejor experiencia de lectura, destacando un 100% de cumplimiento con las normativas de legibilidad institucional."
+               data-img="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1600&q=80">
+                <div class="media-container">
+                    <img class="media-parallax" src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1600&q=80" alt="Apuntes Estructurados" />
+                    <video class="hover-video" muted loop playsinline>
+                        <source src="https://cdn.pixabay.com/video/2021/01/29/63346-512684784_tiny.mp4" type="video/mp4" />
+                    </video>
+                    <div class="card-hover-overlay"><span class="hover-text">Ver proyecto ↗</span></div>
+                    <span class="card-badge">Diseño editorial</span>
+                </div>
+                <div class="project-meta">
+                    <div>
+                        <h3 class="project-title">Redacción de <span class="text-extrabold">apuntes</span> estructurados</h3>
+                        <p class="project-subtitle">Maquetación • Carga cognitiva • Bibliografía</p>
+                    </div>
+                </div>
+            </a>
+
+            <a href="#" class="project-card span-12 card-reveal hover-target"
+               data-title="Estandarización UI/UX & soporte móvil"
+               data-badge="Ecosistema digital"
+               data-challenge="Múltiples aulas virtuales presentaban diseños inconsistentes y barreras de accesibilidad para usuarios con discapacidad."
+               data-solution="Estandarización UI/UX del LMS Moodle, incorporando menús intuitivos, paleta de colores accesibles y soporte móvil."
+               data-impact="Navegación unificada en toda la institución, cumpliendo con los criterios WCA y mejorando la satisfacción en un 45%."
+               data-img="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=2200&q=80">
+                <div class="media-container widescreen">
+                    <img class="media-parallax intense-parallax" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=2200&q=80" alt="UX Moodle LMS" />
+                    <video class="hover-video" muted loop playsinline>
+                        <source src="https://assets.mixkit.co/videos/preview/mixkit-user-interface-designer-working-on-a-digital-tablet-4766-large.mp4" type="video/mp4" />
+                    </video>
+                    <div class="card-hover-overlay"><span class="hover-text">Ver proyecto ↗</span></div>
+                    <span class="card-badge">Ecosistema digital / Accesibilidad UX</span>
+                </div>
+                <div class="project-meta">
+                    <div>
+                        <h3 class="project-title"><span class="text-extrabold">Estandarización UI/UX</span> & soporte móvil en aulas virtuales</h3>
+                        <p class="project-subtitle">Sistema institucional Moodle • Criterios WCA • Responsive</p>
+                    </div>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN INTERACTIVA: IDENTIDAD & ESTRATEGIA (OPCIÓN B RESTAURADA) -->
+    <section id="identidad-tabs" class="tabs-section">
+        <div class="section-header fade-up">
+            <div class="header-left">
+                <span class="section-num">(02) / Marco Institucional</span>
+                <h2 class="section-heading">Identidad & <span class="text-extrabold">Estrategia</span></h2>
+            </div>
+            <p class="header-right">
+                Explora los pilares de la Dirección de Ambientes Virtuales de Aprendizaje (DADVA) y su enfoque de aseguramiento de la calidad formativa.
+            </p>
+        </div>
+
+        <div class="tabs-container">
+            <!-- Navegación con Cards Anteriores -->
+            <div class="tabs-nav fade-up" role="tablist">
+                <button class="tab-btn tab-card-blue active hover-target" data-tab="tab-mision" role="tab" aria-selected="true" aria-controls="tab-mision">
+                    <span class="tab-num">01</span>
+                    <span class="tab-label">Misión DADVA</span>
+                </button>
+                <button class="tab-btn tab-card-orange hover-target" data-tab="tab-proposito" role="tab" aria-selected="false" aria-controls="tab-proposito">
+                    <span class="tab-num">02</span>
+                    <span class="tab-label">Propósito e-campus</span>
+                </button>
+                <button class="tab-btn tab-card-pink hover-target" data-tab="tab-equipo" role="tab" aria-selected="false" aria-controls="tab-equipo">
+                    <span class="tab-num">03</span>
+                    <span class="tab-label">Cultura de Equipo & Hitos</span>
+                </button>
+            </div>
+
+            <!-- Contenido de las Pestañas -->
+            <div class="tabs-content-wrapper fade-up">
+                <!-- Tab 1: Misión (Tarjeta Lateral Azul Sólido + Texto Blanco Humo) -->
+                <div id="tab-mision" class="tab-pane active" role="tabpanel">
+                    <div class="tab-pane-grid">
+                        <div class="tab-pane-main">
+                            <span class="tab-badge">Liderazgo Tecnopedagógico</span>
+                            <h3 class="tab-pane-title">Diseño, desarrollo y <span class="keyword-highlight theme-blue">mejora continua</span> de experiencias formativas</h3>
+                            <p class="tab-lead-text">
+                                La Dirección de Ambientes Virtuales de Aprendizaje tiene como misión liderar el diseño, desarrollo y <span class="keyword-highlight theme-blue">mejora continua</span> de experiencias formativas en modalidades online y semipresencial, articulando innovación pedagógica, tecnología para el aprendizaje y criterios de aseguramiento de la calidad.
+                            </p>
+                            <p class="tab-body-text">
+                                Desde un enfoque centrado en el estudiantado, la DADVA impulsa la implementación del modelo educativo institucional mediante procesos tecnopedagógicos que integran metodologías activas, principios de accesibilidad e inclusión, estándares internacionales de <span class="keyword-highlight theme-blue">calidad en e-learning (OLC)</span> y herramientas digitales (incluyendo la IA).
+                            </p>
+                        </div>
+                        <div class="tab-pane-meta-card card-solid-blue">
+                            <h4>Pilares clave</h4>
+                            <ul class="tab-checklist">
+                                <li>Enfoque centrado en el estudiantado</li>
+                                <li>Estándares de calidad e-learning (OLC)</li>
+                                <li>Accesibilidad, inclusión e IA aplicada</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Propósito (Tarjeta Lateral Naranja Sólido + Texto Blanco Humo) -->
+                <div id="tab-proposito" class="tab-pane" role="tabpanel">
+                    <div class="tab-pane-grid">
+                        <div class="tab-pane-main">
+                            <span class="tab-badge">Alineamiento Curricular</span>
+                            <h3 class="tab-pane-title">Garantía estratégica y pedagógica en el ecosistema <span class="keyword-highlight theme-orange">e-campus</span></h3>
+                            <p class="tab-lead-text">
+                                Garantizar la aplicación planificada y estratégica del diseño tecnológico y pedagógico en la construcción de aulas y experiencias dentro del Ambiente Virtual de Aprendizaje (<span class="keyword-highlight theme-orange">e-campus</span>).
+                            </p>
+                            <p class="tab-body-text">
+                                Trabajamos bajo estándares de calidad e-learning, el correcto <span class="keyword-highlight theme-orange">alineamiento curricular</span> y la innovación en los recursos, evaluaciones y herramientas de retroalimentación, contribuyendo a una formación flexible, rigurosa y coherente con los perfiles de egreso, la experiencia estudiantil exitosa y la transformación educativa en UNIACC.
+                            </p>
+                        </div>
+                        <div class="tab-pane-meta-card card-solid-orange">
+                            <h4>Compromiso e-campus</h4>
+                            <ul class="tab-checklist">
+                                <li>Coherencia con perfiles de egreso</li>
+                                <li>Evaluación formativa y retroalimentación</li>
+                                <li>Flexibilidad y rigor curricular</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 3: Equipo (Tarjeta Lateral Magenta Sólido + Texto Blanco Humo) -->
+                <div id="tab-equipo" class="tab-pane" role="tabpanel">
+                    <div class="tab-pane-grid">
+                        <div class="tab-pane-main">
+                            <span class="tab-badge">Acompañamiento & Sincronización</span>
+                            <h3 class="tab-pane-title">Organización ágil ante grandes hitos y <span class="keyword-highlight theme-pink">desafíos académicos</span></h3>
+                            <p class="tab-lead-text">
+                                Como equipo nos vemos enfrentados a muchos hitos y sucesos estratégicos de alta relevancia institucional, requiriendo articulación y rapidez de respuesta.
+                            </p>
+                            <p class="tab-body-text">
+                                Es primordial que podamos <span class="keyword-highlight theme-pink">organizar nuestro trabajo</span> de manera planificada y colaborativa, disponiendo de flujos ágiles para <span class="keyword-highlight theme-pink">apoyar a quienes lideran</span> las iniciativas de innovación docente, facultades y áreas de gestión académica.
+                            </p>
+                        </div>
+                        <div class="tab-pane-meta-card card-solid-pink">
+                            <h4>Flujo de Trabajo</h4>
+                            <ul class="tab-checklist">
+                                <li>Soporte directo a líderes de iniciativa</li>
+                                <li>Sprints de producción coordinados</li>
+                                <li>Gestión orientada a hitos clave</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 03: OFERTA DE SERVICIOS -->
+    <section id="servicios" class="services-section">
+        <div class="section-header fade-up">
+            <div class="header-left">
+                <span class="section-num">(03) / Capacidades</span>
+                <h2 class="section-heading">Oferta de <span class="text-extrabold">servicios</span></h2>
+            </div>
+        </div>
+
+        <div class="services-grid">
+            
+            <div class="service-card hover-target">
+                <div class="card-top">
+                    <span class="service-number">01</span>
+                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                </div>
+                <h3 class="service-text">Definición de modelos de diseño tecnopedagógico.</h3>
+            </div>
+
+            <div class="service-card hover-target">
+                <div class="card-top">
+                    <span class="service-number">02</span>
+                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21"></polygon><line x1="9" y1="3" x2="9" y2="21"></line><line x1="15" y1="3" x2="15" y2="21"></line></svg>
+                </div>
+                <h3 class="service-text">Rutas de aprendizaje.</h3>
+            </div>
+
+            <div class="service-card hover-target">
+                <div class="card-top">
+                    <span class="service-number">03</span>
+                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect><line x1="9" y1="14" x2="15" y2="14"></line><line x1="9" y1="18" x2="15" y2="18"></line><line x1="9" y1="10" x2="9.01" y2="10"></line></svg>
+                </div>
+                <h3 class="service-text">Construcción de planes de asignatura.</h3>
+            </div>
+
+            <div class="service-card hover-target">
+                <div class="card-top">
+                    <span class="service-number">04</span>
+                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2" ry="2"></rect><polygon points="10 8 16 12 10 16 10 8"></polygon></svg>
+                </div>
+                <h3 class="service-text">Elaboración de recursos de aprendizaje (video, interactivo, infografía, podcast, apuntes).</h3>
+            </div>
+
+            <div class="service-card hover-target">
+                <div class="card-top">
+                    <span class="service-number">05</span>
+                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"></polyline><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+                </div>
+                <h3 class="service-text">Construcción de evaluaciones e instrumentos.</h3>
+            </div>
+
+            <div class="service-card hover-target">
+                <div class="card-top">
+                    <span class="service-number">06</span>
+                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                </div>
+                <h3 class="service-text">Elaboración de guías y presentaciones.</h3>
+            </div>
+
+            <div class="service-card hover-target">
+                <div class="card-top">
+                    <span class="service-number">07</span>
+                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                </div>
+                <h3 class="service-text">Configuración y diseño de aulas virtuales.</h3>
+            </div>
+
+            <div class="service-card hover-target">
+                <div class="card-top">
+                    <span class="service-number">08</span>
+                    <svg class="card-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                </div>
+                <h3 class="service-text">Propuestas de línea gráfica para entornos y recursos de aprendizaje.</h3>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN 04: METODOLOGÍA -->
+    <section id="metodologia" class="methodology-section">
+        
+        <div class="methodology-bg">
+            <img src="img/nuestro_proceso.jpg" alt="Proceso DADVA" class="methodology-bg-img" />
+            <div class="methodology-overlay"></div>
+        </div>
+
+        <div class="methodology-fixed-header">
+            <span class="section-num" style="color: rgba(255,255,255,0.7);">(04) / Metodología</span>
+            <h2 class="section-heading" style="color: var(--bg-main);">Nuestro <span style="color: var(--text-main); font-weight: 900;">proceso</span></h2>
+        </div>
+
+        <div class="methodology-track">
+            
+            <div class="methodology-step">
+                <div class="step-content">
+                    <span class="step-number">01</span>
+                    <svg class="methodology-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                    <h2 class="step-title">Análisis</h2>
+                    <p class="step-desc">Evaluamos el perfil del estudiante, las competencias declaradas en el programa y los requerimientos tecnológicos para sentar bases sólidas.</p>
+                </div>
+            </div>
+
+            <div class="methodology-step">
+                <div class="step-content">
+                    <span class="step-number">02</span>
+                    <svg class="methodology-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                    <h2 class="step-title">Diseño</h2>
+                    <p class="step-desc">Estructuramos las rutas de aprendizaje bajo el modelo ASSURE, alineando constructivamente resultados, microactividades y evaluación.</p>
+                </div>
+            </div>
+
+            <div class="methodology-step">
+                <div class="step-content">
+                    <span class="step-number">03</span>
+                    <svg class="methodology-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+                    <h2 class="step-title">Desarrollo</h2>
+                    <p class="step-desc">Nuestra factoría multimedia crea objetos virtuales interactivos, podcasts, cápsulas de video y recursos editoriales de alto estándar.</p>
+                </div>
+            </div>
+
+            <div class="methodology-step">
+                <div class="step-content">
+                    <span class="step-number">04</span>
+                    <svg class="methodology-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
+                    <h2 class="step-title">Implementación</h2>
+                    <p class="step-desc">Desplegamos todo el ecosistema digital en Moodle, asegurando altos estándares de accesibilidad (WCA), responsividad y usabilidad (UX/UI).</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECCIÓN 05: IMPACTO Y MÉTRICAS -->
+    <section id="impacto" class="metrics-section">
+        <div class="section-header fade-up">
+            <div class="header-left">
+                <span class="section-num">(05) / Impacto</span>
+                <h2 class="section-heading">Nuestras <span class="text-extrabold">métricas</span></h2>
+            </div>
+        </div>
+
+        <div class="metrics-grid fade-up">
+            <div class="metric-card hover-target">
+                <svg class="metric-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path></svg>
+                <div class="metric-value">
+                    <span class="metric-number" data-target="220">0</span><span class="metric-suffix">+</span>
+                </div>
+                <p class="metric-text">Cursos desarrollados</p>
+            </div>
+            
+            <div class="metric-card hover-target">
+                <svg class="metric-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                <div class="metric-value">
+                    <span class="metric-number" data-target="3000">0</span>
+                </div>
+                <p class="metric-text">Estudiantes impactados en promedio</p>
+            </div>
+
+            <div class="metric-card hover-target">
+                <svg class="metric-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                <div class="metric-value">
+                    <span class="metric-number" data-target="200">0</span><span class="metric-suffix">h</span>
+                </div>
+                <p class="metric-text">Trabajo promedio por asignatura</p>
+            </div>
+
+            <div class="metric-card hover-target">
+                <svg class="metric-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <div class="metric-value">
+                    <span class="metric-number" data-target="7">0</span>
+                </div>
+                <p class="metric-text">Profesionales en el equipo</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 06: PRUEBA SOCIAL -->
+    <section id="testimonios" class="testimonials-section">
+        <div class="testimonials-header-wrap fade-up">
+            <div class="header-left">
+                <span class="section-num">(06) / Prueba social</span>
+                <h2 class="section-heading">Lo que dicen los <span class="text-extrabold">docentes</span></h2>
+            </div>
+            <div class="slider-controls">
+                <button class="slider-btn prev-btn hover-target" aria-label="Anterior testimonio">←</button>
+                <button class="slider-btn next-btn hover-target" aria-label="Siguiente testimonio">→</button>
+            </div>
+        </div>
+
+        <div class="testimonials-slider fade-up">
+            <div class="testimonial-card hover-target">
+                <p class="quote">"El equipo de DADVA transformó por completo mi asignatura. Los estudiantes ahora interactúan con el material de una forma que nunca imaginé posible, mejorando sus calificaciones."</p>
+                <div class="author">
+                    <strong>María José Rojas</strong>
+                    <span>Directora de Escuela de Diseño</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card hover-target">
+                <p class="quote">"La metodología ágil que implementan permitió que entregáramos el material a tiempo para el inicio del semestre. Las animaciones y videos son de primera calidad."</p>
+                <div class="author">
+                    <strong>Carlos Valenzuela</strong>
+                    <span>Docente Facultad de Artes</span>
+                </div>
+            </div>
+
+            <div class="testimonial-card hover-target">
+                <p class="quote">"El rediseño del aula en Moodle no solo se ve moderno, sino que solucionó los problemas de accesibilidad que teníamos con algunos alumnos. Un trabajo impecable."</p>
+                <div class="author">
+                    <strong>Andrea Bustamante</strong>
+                    <span>Coordinadora Académica de Posgrado</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN 07: MESA DE TRABAJO -->
+    <section id="contacto" class="cta-section">
+        <div class="cta-content fade-up">
+            <span class="meta-tag text-smoke">(07) / Mesa de trabajo</span>
+            <h2 class="cta-title">¿Innovamos en tu <br>próxima <span class="text-extrabold" style="color: var(--text-main);">asignatura?</span></h2>
+            <div style="margin-top: 2rem;">
+                <a href="mailto:correo@uniacc.cl" class="btn-giant-mail hover-target">Agendar sesión DADVA <span class="arrow-up">↗</span></a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="main-footer">
+        <div class="footer-info fade-up">
+            <div class="footer-logos">
+                <img src="img/logo1.svg" alt="Logo UNIACC" class="footer-logo">
+                <img src="img/olc.png" alt="Logo Online Learning Consortium" class="footer-logo">
+            </div>
+            <div class="footer-address">
+                Campus Casa Central: <br>
+                Av. Salvador 1200, Edificio 1 Hindenburg
+            </div>
+        </div>
+
+        <div class="footer-bottom fade-up">
+            <div>&copy; 2026 DADVA — Dirección de Ambientes Virtuales de Aprendizaje | UNIACC</div>
+            <div>Diseñado con Ui/Ux, Smooth Scroll &amp; GSAP</div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://unpkg.com/@studio-freight/lenis@1.0.39/dist/lenis.min.js"></script>
+    <script src="scripts.js"></script>
+</body>
+</html>
