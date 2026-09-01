@@ -11,6 +11,7 @@
 </head>
 <body>
 
+    <!-- PRELOADER -->
     <div class="preloader">
         <div class="preloader-content">
             <img src="img/logo_animado.gif" alt="Cargando DADVA" class="preloader-logo">
@@ -18,15 +19,27 @@
         </div>
     </div>
 
+    <!-- CURSOR PERSONALIZADO -->
     <div class="cursor-dot"></div>
     <div class="cursor-outline"></div>
 
     <div class="page-transition-overlay"></div>
-    <button class="close-transition">✕ Volver al portafolio</button>
+    <button class="close-transition" style="background:#e62525; color:#fff; border:none; padding:10px 20px; border-radius:50px; display:none;">✕ Volver al portafolio</button>
 
+    <!-- BOTÓN VOLVER ARRIBA -->
     <button id="backToTop" class="back-to-top hover-target" aria-label="Volver arriba">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
     </button>
+
+    <!-- LIGHTBOX OVERLAY PARA ZOOM DE IMÁGENES -->
+    <div class="lightbox-overlay">
+        <button class="lightbox-close hover-target" aria-label="Cerrar imagen">✕</button>
+        <button class="lightbox-prev hover-target" aria-label="Imagen anterior">←</button>
+        <button class="lightbox-next hover-target" aria-label="Siguiente imagen">→</button>
+        <div class="lightbox-content">
+            <img src="" alt="Vista ampliada" class="lightbox-img">
+        </div>
+    </div>
 
     <!-- MODAL DETALLE PROYECTO -->
     <div class="project-modal-overlay"></div>
@@ -44,16 +57,16 @@
                 
                 <div class="panel-details">
                     <div class="detail-block">
-                        <h4 class="text-extrabold">El reto</h4>
-                        <p class="panel-challenge"></p>
+                        <h4 class="text-extrabold">El Desafío: ¿Cuál era el problema?</h4>
+                        <div class="panel-challenge"></div>
                     </div>
                     <div class="detail-block">
-                        <h4 class="text-extrabold">La solución</h4>
-                        <p class="panel-solution"></p>
+                        <h4 class="text-extrabold">La Solución: ¿Qué servicios específicos de DAVDA se aplicaron para resolver este desafío?</h4>
+                        <div class="panel-solution"></div>
                     </div>
                     <div class="detail-block">
-                        <h4 class="text-extrabold">El impacto</h4>
-                        <p class="panel-impact"></p>
+                        <h4 class="text-extrabold">El Resultado: ¿Hubo mejoras medibles?</h4>
+                        <div class="panel-impact"></div>
                     </div>
                 </div>
             </div>
@@ -83,7 +96,7 @@
     <!-- HERO SECTION -->
     <section class="hero" id="hero">
         <div class="hero-bg-wrapper">
-            <img src="img/hero.jpg" class="hero-bg-parallax" alt="DADVA Background" />
+            <img src="img/hero.webp" class="hero-bg-parallax" alt="DADVA Background" />
         </div>
         
         <img src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=600&q=80" alt="Elemento flotante" class="hero-floating-img hero-anim" />
@@ -128,18 +141,19 @@
                 <h2 class="section-heading">Trabajos <span class="text-extrabold">destacados</span></h2>
             </div>
             <p class="header-right">
-                Selección de proyectos de innovación académica, aulas virtuales Moodle y producciones multimedia desarrolladas para UNIACC y asociados.
+                Selección de proyectos de innovación académica, repositorios digitales, aulas virtuales Moodle y factoría multimedia desarrolladas para UNIACC y asociados.
             </p>
         </div>
 
         <div class="projects-grid">
             
+            <!-- 01. CARD MEDIANA: DISEÑO DE RUTAS E-LEARNING BAJO MODELO ASSURE -->
             <a href="#" class="project-card span-7 card-reveal hover-target"
                data-title="Diseño de rutas e-learning bajo modelo ASSURE"
                data-badge="Diseño tecnopedagógico"
-               data-challenge="El curso presentaba una alta carga cognitiva, material denso en PDF y baja participación estudiantil en los foros."
-               data-solution="Aplicación del modelo ASSURE para reestructurar el contenido en rutas de aprendizaje con microactividades progresivas."
-               data-impact="Incremento del 35% en la finalización de módulos semanales y mejora en las calificaciones generales del curso."
+               data-challenge="<p>El curso presentaba una alta carga cognitiva, material denso en PDF y baja participación estudiantil en los foros.</p>"
+               data-solution="<p>Aplicación del modelo ASSURE para reestructurar el contenido en rutas de aprendizaje con microactividades progresivas.</p>"
+               data-impact="<p>Incremento del 35% en la finalización de módulos semanales y mejora en las calificaciones generales del curso.</p>"
                data-img="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1600&q=80">
                 <div class="media-container">
                     <img class="media-parallax" src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=1600&q=80" alt="Diseño Instruccional" />
@@ -157,12 +171,13 @@
                 </div>
             </a>
 
+            <!-- 02. CARD PEQUEÑA: CONTROL Y GESTIÓN CON METODOLOGÍAS ÁGILES -->
             <a href="#" class="project-card span-5 offset-top card-reveal hover-target"
                data-title="Control y gestión con metodologías ágiles"
                data-badge="Scrum / Kanban"
-               data-challenge="Retrasos en la entrega de material pedagógico y falta de visibilidad en el avance de la producción multimedia."
-               data-solution="Implementación de metodologías ágiles (Scrum/Kanban) con sprints de 2 semanas y tableros de control visuales."
-               data-impact="Reducción del 40% en los tiempos de entrega y sincronización total entre el equipo de diseño y los docentes."
+               data-challenge="<p>Retrasos en la entrega de material pedagógico y falta de visibilidad en el avance de la producción multimedia.</p>"
+               data-solution="<p>Implementación de metodologías ágiles (Scrum/Kanban) con sprints de 2 semanas y tableros de control visuales.</p>"
+               data-impact="<p>Reducción del 40% en los tiempos de entrega y sincronización total entre el equipo de diseño y los docentes.</p>"
                data-img="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80">
                 <div class="media-container">
                     <img class="media-parallax" src="https://images.unsplash.com/photo-1552664730-d307ca884978?auto=format&fit=crop&w=1600&q=80" alt="Gestión de Proyectos" />
@@ -180,12 +195,61 @@
                 </div>
             </a>
 
+            <!-- 03. CARD PEQUEÑA: SERIE DE PODCASTS ACADÉMICOS DE ALTA FIDELIDAD -->
             <a href="#" class="project-card span-5 card-reveal hover-target"
+               data-title="Serie de podcasts académicos de alta fidelidad"
+               data-badge="Audio / Streaming"
+               data-challenge="<p>Los estudiantes de posgrado manifestaban falta de tiempo para leer extensos documentos frente a la pantalla.</p>"
+               data-solution="<p>Creación de una serie de podcasts académicos con guionización instruccional, locución y diseño sonoro profesional.</p>"
+               data-impact="<p>Los estudiantes pudieron estudiar en tránsito. El formato alcanzó un 90% de aprobación en las encuestas de UX.</p>"
+               data-img="img/podcast.webp">
+                <div class="media-container">
+                    <img class="media-parallax" src="img/podcast.webp" alt="Podcast Académico" />
+                    <video class="hover-video" muted loop playsinline>
+                        <source src="img/podcast.mp4" type="video/mp4" />
+                    </video>
+                    <div class="card-hover-overlay"><span class="hover-text">Ver proyecto ↗</span></div>
+                    <span class="card-badge highlight-badge">Audio / Streaming</span>
+                </div>
+                <div class="project-meta">
+                    <div>
+                        <h3 class="project-title">Serie de <span class="text-extrabold">podcasts</span> académicos de alta fidelidad</h3>
+                        <p class="project-subtitle">Guionización • Locución • Distribución LMS</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 04. CARD GRANDE / SUGERENCIA: ECOSISTEMA DE FORMACIÓN CONTINUA & DIPLOMADOS VIRTUALES -->
+            <a href="#" class="project-card span-7 offset-top card-reveal hover-target"
+               data-title="Ecosistema de Formación Continua & Diplomados Virtuales"
+               data-badge="Postgrado & Educación Continua"
+               data-challenge="<p>Necesidad de estructurar programas modulares de formación ejecutiva con alta flexibilidad horaria, sin perder el rigor metodológico ni el acompañamiento docente característico de UNIACC.</p>"
+               data-solution="<p>Diseño de arquitectura modular tecnopedagógica orientada a resultados de aprendizaje inmediatos, integrando microcápsulas, foros sincrónicos y rúbricas de evaluación por competencias laborales.</p>"
+               data-impact="<p>Apertura de más de 12 diplomados 100% online con una tasa de retención superior al 92% y altos índices de recomendación profesional.</p>"
+               data-img="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80">
+                <div class="media-container">
+                    <img class="media-parallax" src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1600&q=80" alt="Diplomados y Postgrado" />
+                    <video class="hover-video" muted loop playsinline>
+                        <source src="https://cdn.pixabay.com/video/2016/09/21/5364-183742475_tiny.mp4" type="video/mp4" />
+                    </video>
+                    <div class="card-hover-overlay"><span class="hover-text">Ver proyecto ↗</span></div>
+                    <span class="card-badge">Postgrado / Diplomados</span>
+                </div>
+                <div class="project-meta">
+                    <div>
+                        <h3 class="project-title">Formación Continua & <span class="text-extrabold">Diplomados Virtuales</span></h3>
+                        <p class="project-subtitle">Rutas modulares • Aprendizaje aplicado • Flexibilidad ejecutiva</p>
+                    </div>
+                </div>
+            </a>
+
+            <!-- 05. CARD MEDIANA: CREACIÓN DE MATERIAL DIDÁCTICO E INTERACTIVOS -->
+            <a href="#" class="project-card span-7 card-reveal hover-target"
                data-title="Creación de material didáctico e interactivos"
                data-badge="Factoría / Genially"
-               data-challenge="El material de estudio tradicional no lograba captar la atención de los estudiantes de primer año."
-               data-solution="Desarrollo de objetos virtuales de aprendizaje (OVAs) mediante Genially y paquetización SCORM para Moodle."
-               data-impact="Aumento significativo en el engagement, con más de 1.500 interacciones por módulo gamificado."
+               data-challenge="<p>El material de estudio tradicional no lograba captar la atención de los estudiantes de primer año.</p>"
+               data-solution="<p>Desarrollo de objetos virtuales de aprendizaje (OVAs) mediante Genially y paquetización SCORM para Moodle.</p>"
+               data-impact="<p>Aumento significativo en el engagement, con más de 1.500 interacciones por módulo gamificado.</p>"
                data-img="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1600&q=80">
                 <div class="media-container">
                     <img class="media-parallax" src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1600&q=80" alt="Interactivos Genially" />
@@ -203,35 +267,13 @@
                 </div>
             </a>
 
-            <a href="#" class="project-card span-7 offset-top card-reveal hover-target"
-               data-title="Serie de podcasts académicos de alta fidelidad"
-               data-badge="Audio / Streaming"
-               data-challenge="Los estudiantes de posgrado manifestaban falta de tiempo para leer extensos documentos frente a la pantalla."
-               data-solution="Creación de una serie de podcasts académicos con guionización instruccional, locución y diseño sonoro profesional."
-               data-impact="Los estudiantes pudieron estudiar en tránsito. El formato alcanzó un 90% de aprobación en las encuestas de UX."
-               data-img="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=1600&q=80">
-                <div class="media-container">
-                    <img class="media-parallax" src="https://images.unsplash.com/photo-1590602847861-f357a9332bbc?auto=format&fit=crop&w=1600&q=80" alt="Podcast Académico" />
-                    <video class="hover-video" muted loop playsinline>
-                        <source src="https://cdn.pixabay.com/video/2021/06/18/78135-565451633_tiny.mp4" type="video/mp4" />
-                    </video>
-                    <div class="card-hover-overlay"><span class="hover-text">Ver proyecto ↗</span></div>
-                    <span class="card-badge highlight-badge">Audio / Streaming</span>
-                </div>
-                <div class="project-meta">
-                    <div>
-                        <h3 class="project-title">Serie de <span class="text-extrabold">podcasts</span> académicos de alta fidelidad</h3>
-                        <p class="project-subtitle">Guionización • Locución • Distribución LMS</p>
-                    </div>
-                </div>
-            </a>
-
-            <a href="#" class="project-card span-7 card-reveal hover-target"
+            <!-- 06. CARD MEDIANA: PRODUCCIÓN DE VIDEOS CON CALIDAD ESTUDIO -->
+            <a href="#" class="project-card span-5 offset-top card-reveal hover-target"
                data-title="Producción de videos con calidad estudio"
                data-badge="Audiovisual / Animación"
-               data-challenge="Las clases magistrales en bruto resultaban en una rápida pérdida de retención visual del alumno."
-               data-solution="Producción de cápsulas de microlearning con calidad de estudio, utilizando motion graphics para explicar conceptos abstractos."
-               data-impact="Retención de la atención aumentada al 85% promedio por video y reducción de consultas básicas en los foros."
+               data-challenge="<p>Las clases magistrales en bruto resultaban en una rápida pérdida de retención visual del alumno.</p>"
+               data-solution="<p>Producción de cápsulas de microlearning con calidad de estudio, utilizando motion graphics para explicar conceptos abstractos.</p>"
+               data-impact="<p>Retención de la atención aumentada al 85% promedio por video y reducción de consultas básicas en los foros.</p>"
                data-img="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1600&q=80">
                 <div class="media-container">
                     <img class="media-parallax" src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1600&q=80" alt="Producción de Videos" />
@@ -249,12 +291,13 @@
                 </div>
             </a>
 
-            <a href="#" class="project-card span-5 offset-top card-reveal hover-target"
+            <!-- 07. CARD PEQUEÑA: REDACCIÓN DE APUNTES ESTRUCTURADOS -->
+            <a href="#" class="project-card span-5 card-reveal hover-target"
                data-title="Redacción de apuntes estructurados"
                data-badge="Diseño editorial"
-               data-challenge="Apuntes desestructurados y con mala legibilidad que dificultaban la lectura prolongada en dispositivos móviles."
-               data-solution="Rediseño editorial enfocado en la jerarquía visual, uso de espacios en blanco y maquetación amigable para pantallas."
-               data-impact="Mejor experiencia de lectura, destacando un 100% de cumplimiento con las normativas de legibilidad institucional."
+               data-challenge="<p>Apuntes desestructurados y con mala legibilidad que dificultaban la lectura prolongada en dispositivos móviles.</p>"
+               data-solution="<p>Rediseño editorial enfocado en la jerarquía visual, uso de espacios en blanco y maquetación amigable para pantallas.</p>"
+               data-impact="<p>Mejor experiencia de lectura, destacando un 100% de cumplimiento con las normativas de legibilidad institucional.</p>"
                data-img="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1600&q=80">
                 <div class="media-container">
                     <img class="media-parallax" src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1600&q=80" alt="Apuntes Estructurados" />
@@ -272,15 +315,16 @@
                 </div>
             </a>
 
-            <a href="#" class="project-card span-12 card-reveal hover-target"
+            <!-- 08. CARD PEQUEÑA: ESTANDARIZACIÓN UI/UX & SOPORTE MÓVIL EN AULAS VIRTUALES -->
+            <a href="#" class="project-card span-7 offset-top card-reveal hover-target"
                data-title="Estandarización UI/UX & soporte móvil"
                data-badge="Ecosistema digital"
-               data-challenge="Múltiples aulas virtuales presentaban diseños inconsistentes y barreras de accesibilidad para usuarios con discapacidad."
-               data-solution="Estandarización UI/UX del LMS Moodle, incorporando menús intuitivos, paleta de colores accesibles y soporte móvil."
-               data-impact="Navegación unificada en toda la institución, cumpliendo con los criterios WCA y mejorando la satisfacción en un 45%."
+               data-challenge="<p>Múltiples aulas virtuales presentaban diseños inconsistentes y barreras de accesibilidad para usuarios con discapacidad.</p>"
+               data-solution="<p>Estandarización UI/UX del LMS Moodle, incorporando menús intuitivos, paleta de colores accesibles y soporte móvil.</p>"
+               data-impact="<p>Navegación unificada en toda la institución, cumpliendo con los criterios WCA y mejorando la satisfacción en un 45%.</p>"
                data-img="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=2200&q=80">
-                <div class="media-container widescreen">
-                    <img class="media-parallax intense-parallax" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=2200&q=80" alt="UX Moodle LMS" />
+                <div class="media-container">
+                    <img class="media-parallax" src="https://images.unsplash.com/photo-1550745165-9bc0b252726f?auto=format&fit=crop&w=2200&q=80" alt="UX Moodle LMS" />
                     <video class="hover-video" muted loop playsinline>
                         <source src="https://assets.mixkit.co/videos/preview/mixkit-user-interface-designer-working-on-a-digital-tablet-4766-large.mp4" type="video/mp4" />
                     </video>
@@ -295,10 +339,34 @@
                 </div>
             </a>
 
+            <!-- 09. CARD GRANDE: REPOSITORIO DE RECURSOS GRÁFICO MULTIMEDIA -->
+            <a href="#" class="project-card span-12 card-reveal hover-target"
+               data-title="Repositorio de Recursos Gráfico Multimedia"
+               data-badge="Repositorio Gráfico"
+               data-challenge="<p>La gestión de activos gráficos del área se realizaba a través de un <strong>sistema de carpetas en Google Drive</strong>. Este formato fragmentado carecía de un entorno visual, de contexto y de instrucciones claras de uso, lo que generaba <strong>fricción en el flujo de trabajo</strong> y dificultaba mantener la <strong>coherencia visual</strong> en las entregas. El gran desafío fue diseñar una <strong>plataforma centralizada y accesible</strong> que no solo almacenara los recursos, sino que <strong>educara al usuario</strong>, proporcionándole lineamientos técnicos y herramientas prácticas para garantizar el desarrollo de proyectos profesionales y estrictamente alineados con la <strong>identidad de marca</strong>.</p>"
+               data-solution="<p>Desde DAVDA, implementamos una solución integral basada en el <strong>Diseño de Interfaces (UI)</strong> y la <strong>Arquitectura de la Información</strong>. Transformamos un almacenamiento estático en un <strong>'Hub Gráfico' interactivo</strong>. Se desarrolló un sitio web centralizado que categoriza visualmente las bases gráficas y recursos, integrando manuales de uso y guías de estilo en un solo lugar. Esto permitió estandarizar el material corporativo bajo una <strong>experiencia de usuario (UX)</strong> intuitiva y de fácil navegación.</p>"
+               data-impact="<p>La implementación de este repositorio transformó por completo la dinámica de trabajo del área, convirtiéndose en la fuente única de verdad para la gestión de activos visuales. El impacto del proyecto se reflejó en las siguientes mejoras clave:</p><ul><li><strong>Optimización operativa y Autonomía (Self-service):</strong> Se redujeron drásticamente los tiempos de búsqueda y la carga por consultas repetitivas. Los usuarios ahora son 100% autónomos para encontrar y descargar sus recursos, sin depender de solicitudes a terceros.</li><li><strong>Consistencia de Marca (Brand Consistency):</strong> Al centralizar las normativas junto con los recursos oficiales, se disminuyeron los errores visuales en las entregas (como logotipos deformados, colores inexactos o tipografías no oficiales), asegurando un estándar de calidad y fidelidad a la línea gráfica.</li><li><strong>Accesibilidad sin fricciones:</strong> Se eliminaron los problemas asociados a los permisos limitados o engorrosos de Google Drive. El material ahora está disponible 24/7 en un entorno web rápido y accesible desde cualquier dispositivo.</li><li><strong>Mejora en la curva de aprendizaje (Onboarding):</strong> Se facilitó enormemente la inducción de nuevos integrantes y estudiantes. Ahora cuentan con una plataforma centralizada, educativa e intuitiva que les permite entender y aplicar la identidad visual correctamente desde el primer día.</li></ul><div class='modal-gallery balanced-grid'><img src='img/rrgm_cap_1.webp' class='lightbox-trigger hover-target' alt='Captura UI Repositorio 1'><img src='img/rrgm_cap_2.webp' class='lightbox-trigger hover-target' alt='Captura UI Repositorio 2'><img src='img/rrgm_cap_3.webp' class='lightbox-trigger hover-target' alt='Captura UI Repositorio 3'><img src='img/rrgm_cap_4.webp' class='lightbox-trigger hover-target' alt='Captura UI Repositorio 4'></div>"
+               data-img="img/rrgm.webp">
+                <div class="media-container widescreen">
+                    <img class="media-parallax intense-parallax" src="img/rrgm.webp" alt="Repositorio de Recursos Gráfico Multimedia" />
+                    <video class="hover-video" muted loop playsinline>
+                        <source src="img/rrgm.mp4" type="video/mp4" />
+                    </video>
+                    <div class="card-hover-overlay"><span class="hover-text">Ver proyecto ↗</span></div>
+                    <span class="card-badge highlight-badge">Repositorio Gráfico</span>
+                </div>
+                <div class="project-meta">
+                    <div>
+                        <h3 class="project-title">Repositorio de Recursos <span class="text-extrabold">Gráfico Multimedia</span></h3>
+                        <p class="project-subtitle">Hub Gráfico interactivo • Arquitectura de Información • UI/UX • Brand Consistency</p>
+                    </div>
+                </div>
+            </a>
+
         </div>
     </section>
 
-    <!-- SECCIÓN INTERACTIVA: IDENTIDAD & ESTRATEGIA (OPCIÓN B RESTAURADA) -->
+    <!-- SECCIÓN INTERACTIVA: IDENTIDAD & ESTRATEGIA -->
     <section id="identidad-tabs" class="tabs-section">
         <div class="section-header fade-up">
             <div class="header-left">
@@ -311,7 +379,6 @@
         </div>
 
         <div class="tabs-container">
-            <!-- Navegación con Cards Anteriores -->
             <div class="tabs-nav fade-up" role="tablist">
                 <button class="tab-btn tab-card-blue active hover-target" data-tab="tab-mision" role="tab" aria-selected="true" aria-controls="tab-mision">
                     <span class="tab-num">01</span>
@@ -327,9 +394,7 @@
                 </button>
             </div>
 
-            <!-- Contenido de las Pestañas -->
             <div class="tabs-content-wrapper fade-up">
-                <!-- Tab 1: Misión (Tarjeta Lateral Azul Sólido + Texto Blanco Humo) -->
                 <div id="tab-mision" class="tab-pane active" role="tabpanel">
                     <div class="tab-pane-grid">
                         <div class="tab-pane-main">
@@ -353,7 +418,6 @@
                     </div>
                 </div>
 
-                <!-- Tab 2: Propósito (Tarjeta Lateral Naranja Sólido + Texto Blanco Humo) -->
                 <div id="tab-proposito" class="tab-pane" role="tabpanel">
                     <div class="tab-pane-grid">
                         <div class="tab-pane-main">
@@ -377,7 +441,6 @@
                     </div>
                 </div>
 
-                <!-- Tab 3: Equipo (Tarjeta Lateral Magenta Sólido + Texto Blanco Humo) -->
                 <div id="tab-equipo" class="tab-pane" role="tabpanel">
                     <div class="tab-pane-grid">
                         <div class="tab-pane-main">

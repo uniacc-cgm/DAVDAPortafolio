@@ -47,7 +47,8 @@ window.addEventListener('DOMContentLoaded', () => {
     // =========================================================================
     const cursorDot = document.querySelector('.cursor-dot');
     const cursorOutline = document.querySelector('.cursor-outline');
-    const hoverTargets = document.querySelectorAll('.hover-target, a, button, .slider-btn, .tab-btn');
+    // Agregados lightbox-prev y lightbox-next para que tengan hover
+    const hoverTargets = document.querySelectorAll('.hover-target, a, button, .slider-btn, .tab-btn, .lightbox-prev, .lightbox-next');
 
     if (cursorDot && cursorOutline && window.innerWidth > 1024) {
         window.addEventListener('mousemove', (e) => {
@@ -192,7 +193,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     // =========================================================================
-    // 9. MODAL DETALLE PROYECTO
+    // 9. MODAL DETALLE PROYECTO & LIGHTBOX (CARRUSEL INTRA-GALERÍA)
     // =========================================================================
     const modal = document.querySelector('.project-modal');
     const panelOverlay = document.querySelector('.project-modal-overlay');
@@ -215,10 +216,11 @@ window.addEventListener('DOMContentLoaded', () => {
             
             pTitle.textContent = card.dataset.title;
             pBadge.textContent = card.dataset.badge;
-            pChallenge.textContent = card.dataset.challenge;
-            pSolution.textContent = card.dataset.solution;
-            pImpact.textContent = card.dataset.impact;
             pImg.src = card.dataset.img;
+            
+            pChallenge.innerHTML = card.dataset.challenge;
+            pSolution.innerHTML = card.dataset.solution;
+            pImpact.innerHTML = card.dataset.impact;
 
             if(modalBodyWrapper) modalBodyWrapper.scrollTop = 0; 
             if(modalScrollIndicator) modalScrollIndicator.style.width = '0%';
@@ -245,6 +247,76 @@ window.addEventListener('DOMContentLoaded', () => {
             modalScrollIndicator.style.width = `${scrolled}%`;
         });
     }
+
+    // LÓGICA LIGHTBOX (ZOOM CON NAVEGACIÓN ENTRE CAPTURAS)
+    const lightbox = document.querySelector('.lightbox-overlay');
+    const lightboxImg = lightbox?.querySelector('.lightbox-img');
+    const lightboxClose = lightbox?.querySelector('.lightbox-close');
+    const lightboxPrev = lightbox?.querySelector('.lightbox-prev');
+    const lightboxNext = lightbox?.querySelector('.lightbox-next');
+    
+    let currentGallery = [];
+    let currentIndex = 0;
+
+    document.addEventListener('click', (e) => {
+        if(e.target.classList.contains('lightbox-trigger')) {
+            const galleryContainer = e.target.closest('.modal-gallery');
+            if (galleryContainer) {
+                currentGallery = Array.from(galleryContainer.querySelectorAll('.lightbox-trigger'));
+                currentIndex = currentGallery.indexOf(e.target);
+            } else {
+                currentGallery = [e.target];
+                currentIndex = 0;
+            }
+
+            if(lightbox && lightboxImg) {
+                lightboxImg.src = e.target.src;
+                lightbox.classList.add('active');
+                updateLightboxNav();
+            }
+        }
+    });
+
+    function updateLightboxNav() {
+        if (currentGallery.length <= 1) {
+            if (lightboxPrev) lightboxPrev.style.display = 'none';
+            if (lightboxNext) lightboxNext.style.display = 'none';
+        } else {
+            if (lightboxPrev) lightboxPrev.style.display = 'flex';
+            if (lightboxNext) lightboxNext.style.display = 'flex';
+        }
+    }
+
+    function showNextImage() {
+        if (currentGallery.length > 0) {
+            currentIndex = (currentIndex + 1) % currentGallery.length;
+            lightboxImg.src = currentGallery[currentIndex].src;
+        }
+    }
+
+    function showPrevImage() {
+        if (currentGallery.length > 0) {
+            currentIndex = (currentIndex - 1 + currentGallery.length) % currentGallery.length;
+            lightboxImg.src = currentGallery[currentIndex].src;
+        }
+    }
+
+    if (lightboxNext) lightboxNext.addEventListener('click', showNextImage);
+    if (lightboxPrev) lightboxPrev.addEventListener('click', showPrevImage);
+
+    if(lightboxClose) lightboxClose.addEventListener('click', () => lightbox.classList.remove('active'));
+    if(lightbox) lightbox.addEventListener('click', (e) => { 
+        if(e.target === lightbox) lightbox.classList.remove('active'); 
+    });
+
+    // Navegación por teclado
+    document.addEventListener('keydown', (e) => {
+        if (lightbox && lightbox.classList.contains('active')) {
+            if (e.key === 'ArrowRight') showNextImage();
+            if (e.key === 'ArrowLeft') showPrevImage();
+            if (e.key === 'Escape') lightbox.classList.remove('active');
+        }
+    });
 
     // =========================================================================
     // 10. LÓGICA DE PESTAÑAS (TABS INTERACTIVAS)
@@ -348,8 +420,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') { closeModal(); }
-        if (e.key === 'ArrowRight') { scrollTestimonials(1); } 
-        else if (e.key === 'ArrowLeft') { scrollTestimonials(-1); }
+        if (e.key === 'ArrowRight' && !document.querySelector('.lightbox-overlay.active')) { scrollTestimonials(1); } 
+        else if (e.key === 'ArrowLeft' && !document.querySelector('.lightbox-overlay.active')) { scrollTestimonials(-1); }
     });
 
     // =========================================================================

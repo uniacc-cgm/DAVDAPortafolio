@@ -236,7 +236,11 @@ body {
 
 .projects-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 5rem 3.5rem; }
 
-.project-card { display: flex; flex-direction: column; text-decoration: none; color: inherit; position: relative; cursor: pointer; }
+.project-card { 
+    display: flex; flex-direction: column; text-decoration: none; color: inherit; position: relative; cursor: pointer; 
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+}
 .project-card.span-7 { grid-column: span 7; }
 .project-card.span-5 { grid-column: span 5; }
 .project-card.offset-top { margin-top: 8rem; }
@@ -251,9 +255,14 @@ body {
 }
 .media-container.widescreen { aspect-ratio: 21 / 9; }
 
-.media-parallax { width: 100%; height: 118%; object-fit: cover; position: absolute; top: -9%; left: 0; transition: transform 0.8s var(--ease-agency); }
+.media-parallax { 
+    width: 100%; height: 120%; object-fit: cover; position: absolute; top: -10%; left: 0; 
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: transform;
+}
 .media-parallax.intense-parallax { height: 150%; top: -25%; }
 
+/* VIDEO CON OPACIDAD RESTAURADA */
 .hover-video {
     position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;
     opacity: 0; transition: opacity 0.5s ease, transform 0.8s ease; transform: scale(1);
@@ -261,8 +270,9 @@ body {
 }
 .project-card:hover .hover-video { opacity: 1; transform: scale(1.05); }
 
+/* TINTE HOVER NEGRO GRAFITO */
 .card-hover-overlay {
-    position: absolute; inset: 0; background: rgba(44, 102, 255, 0.3); 
+    position: absolute; inset: 0; background: rgba(61, 56, 56, 0.65); 
     display: flex; align-items: center; justify-content: center;
     opacity: 0; transition: opacity 0.4s var(--ease-agency); z-index: 3;
 }
@@ -272,8 +282,8 @@ body {
     text-shadow: 0 2px 10px rgba(0,0,0,0.5); 
 }
 
-.project-card:hover { transform: translateY(-10px); }
-.project-card:hover .media-container { box-shadow: 0 25px 50px rgba(44, 102, 255, 0.2); }
+.project-card:hover { transform: translateY(-6px); }
+.project-card:hover .media-container { box-shadow: 0 25px 50px rgba(0,0,0,0.15); }
 .project-card:hover .media-parallax { transform: scale(1.05); }
 .project-card:hover .card-hover-overlay { opacity: 1; }
 .project-card:hover .hover-text { transform: translateY(0); }
@@ -288,7 +298,6 @@ body {
 
 .project-meta { display: flex; justify-content: space-between; align-items: baseline; }
 .project-title { font-size: 1.7rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.4rem; transition: color 0.3s ease; }
-.project-card:hover .project-title { color: var(--accent-pink); }
 .project-subtitle { font-size: 0.95rem; color: var(--text-muted); font-weight: 500;}
 
 /* MODAL DE PROYECTOS */
@@ -307,12 +316,15 @@ body {
     border-bottom: 1px solid var(--border-subtle); position: relative;
 }
 .modal-header-title { font-weight: 800; color: var(--text-main); letter-spacing: 0.05em; font-size: 0.85rem;}
+
+/* BOTÓN CERRAR MODAL: ROJO CORPORATIVO */
 .close-panel {
-    background: transparent; color: var(--text-main); border: 2px solid var(--text-main);
+    background: transparent; color: #e62525; border: 2px solid #e62525;
     padding: 8px 16px; border-radius: 50px; font-weight: 700; cursor: none;
     transition: background 0.3s, color 0.3s; font-size: 0.85rem;
 }
-.close-panel:hover { background: var(--accent-pink); color: #fff; border-color: var(--accent-pink); }
+.close-panel:hover { background: #e62525; color: #fff; border-color: #e62525; }
+
 .modal-scroll-indicator {
     position: absolute; bottom: -2px; left: 0; height: 3px;
     background: linear-gradient(90deg, var(--accent-blue), var(--accent-pink));
@@ -328,13 +340,74 @@ body {
     display: inline-block; background: var(--accent-blue); color: #fff; 
     padding: 0.4rem 1rem; border-radius: 50px; font-size: 0.75rem; font-weight: 700; margin-bottom: 1.5rem;
 }
+
+/* TÍTULO PRINCIPAL EN NEGRO GRAFITO */
 .panel-title { font-size: 2.2rem; font-weight: 900; line-height: 1.1; margin-bottom: 3rem; color: var(--text-main); }
+
 .panel-details { display: flex; flex-direction: column; gap: 2.5rem; }
-.detail-block h4 { font-size: 1.2rem; color: var(--accent-orange); margin-bottom: 0.5rem; border-bottom: 2px solid var(--border-subtle); padding-bottom: 0.5rem;}
+
+/* TÍTULOS Y LISTAS INTERNAS DEL MODAL */
+.detail-block h4 { 
+    font-size: 1.2rem; color: var(--accent-blue); font-weight: 800; 
+    margin-bottom: 0.5rem; border-bottom: 2px solid var(--border-subtle); padding-bottom: 0.5rem;
+}
 .detail-block p { font-size: 1.05rem; color: var(--text-muted); line-height: 1.6; font-weight: 500;}
+.detail-block strong { color: var(--text-main); font-weight: 800; }
+
+.detail-block ul {
+    list-style: none; padding-left: 0; margin-top: 1rem; display: flex; flex-direction: column; gap: 1rem;
+}
+.detail-block ul li {
+    position: relative; padding-left: 1.5rem; font-size: 1.05rem; color: var(--text-muted); line-height: 1.6; font-weight: 500;
+}
+.detail-block ul li::before {
+    content: '•'; position: absolute; left: 0; color: var(--accent-blue); font-weight: 900; font-size: 1.5rem; line-height: 1; top: -2px;
+}
+.detail-block ul li strong { color: var(--text-main); }
+
+/* GALERÍA DE IMÁGENES DENTRO DEL MODAL (AJUSTE CONTAIN) */
+.modal-gallery.balanced-grid { 
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; margin-top: 2.5rem; 
+}
+.modal-gallery img { 
+    width: 100%; aspect-ratio: 16/9; 
+    object-fit: contain; object-position: center; 
+    background-color: #e8e8e8; border-radius: 8px; border: 1px solid var(--border-subtle);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08); cursor: zoom-in; 
+    transition: transform 0.4s var(--ease-agency), box-shadow 0.4s ease; 
+}
+.modal-gallery img:hover { transform: translateY(-4px); box-shadow: 0 15px 30px rgba(0,0,0,0.15); }
+@media (max-width: 768px) { .modal-gallery.balanced-grid { grid-template-columns: 1fr; } }
+
+/* LIGHTBOX OVERLAY, BOTÓN DE CIERRE Y NAVEGACIÓN */
+.lightbox-overlay { 
+    position: fixed; inset: 0; background: rgba(30,30,30,0.95); z-index: 99999; 
+    display: flex; align-items: center; justify-content: center; 
+    opacity: 0; pointer-events: none; transition: opacity 0.4s ease; padding: 2rem; 
+}
+.lightbox-overlay.active { opacity: 1; pointer-events: auto; }
+.lightbox-content { position: relative; max-width: 90vw; max-height: 90vh; }
+.lightbox-content img { width: 100%; height: 100%; object-fit: contain; border-radius: 8px; }
+
+/* Botones Lightbox */
+.lightbox-close, .lightbox-prev, .lightbox-next { 
+    position: absolute; 
+    background: rgba(61, 56, 56, 0.8); border: 2px solid rgba(255, 255, 255, 0.3); 
+    color: #fff; font-weight: 700; 
+    width: 50px; height: 50px; border-radius: 50%; cursor: none;
+    display: flex; align-items: center; justify-content: center; 
+    transition: all 0.3s ease; z-index: 100000;
+}
+.lightbox-close { top: 30px; right: 30px; background: #e62525; border-color: #e62525; font-size: 1.5rem; }
+.lightbox-close:hover { background: #c21e1e; border-color: #c21e1e; transform: scale(1.1); }
+
+.lightbox-prev, .lightbox-next { top: 50%; transform: translateY(-50%); font-size: 1.5rem; display: none; }
+.lightbox-prev { left: 30px; }
+.lightbox-next { right: 30px; }
+.lightbox-prev:hover, .lightbox-next:hover { background: var(--accent-blue); border-color: var(--accent-blue); transform: translateY(-50%) scale(1.1); }
 
 /* ==========================================================================
-   SECCIÓN: IDENTIDAD & ESTRATEGIA (OPCIÓN B - CARDS Y PANELES SÓLIDOS)
+   SECCIÓN: IDENTIDAD & ESTRATEGIA
    ========================================================================== */
 .tabs-section {
     padding: 9rem 6%;
@@ -515,7 +588,7 @@ body {
 .tab-pane-meta-card h4 {
     font-size: 1.3rem;
     font-weight: 900;
-    color: var(--bg-main) !important; /* Blanco Humo */
+    color: var(--bg-main) !important;
     margin-bottom: 1.8rem;
     border-bottom: 2px solid rgba(245, 245, 245, 0.25);
     padding-bottom: 0.8rem;
@@ -532,7 +605,7 @@ body {
 .tab-checklist li {
     font-size: 1.05rem;
     font-weight: 700;
-    color: var(--bg-main) !important; /* Blanco Humo */
+    color: var(--bg-main) !important;
     position: relative;
     padding-left: 2rem;
     line-height: 1.45;
@@ -543,7 +616,7 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    color: var(--bg-main) !important; /* Flecha en Blanco Humo */
+    color: var(--bg-main) !important;
     font-weight: 900;
     font-size: 1.2rem;
 }
