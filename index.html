@@ -31,13 +31,17 @@
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"></line><polyline points="5 12 12 5 19 12"></polyline></svg>
     </button>
 
-    <!-- LIGHTBOX OVERLAY PARA ZOOM DE IMÁGENES -->
+    <!-- LIGHTBOX OVERLAY PARA ZOOM DE IMÁGENES Y VIDEOS -->
     <div class="lightbox-overlay">
         <button class="lightbox-close hover-target" aria-label="Cerrar imagen">✕</button>
         <button class="lightbox-prev hover-target" aria-label="Imagen anterior">←</button>
         <button class="lightbox-next hover-target" aria-label="Siguiente imagen">→</button>
         <div class="lightbox-content">
             <img src="" alt="Vista ampliada" class="lightbox-img">
+            <!-- Reproductor de YouTube inyectado -->
+            <div class="lightbox-video-wrap" style="display:none;">
+                <iframe src="" class="lightbox-video" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+            </div>
         </div>
     </div>
 
@@ -250,11 +254,11 @@
                data-challenge="<p>El material de estudio tradicional no lograba captar la atención de los estudiantes de primer año.</p>"
                data-solution="<p>Desarrollo de objetos virtuales de aprendizaje (OVAs) mediante Genially y paquetización SCORM para Moodle.</p>"
                data-impact="<p>Aumento significativo en el engagement, con más de 1.500 interacciones por módulo gamificado.</p>"
-               data-img="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1600&q=80">
+               data-img="img/interactivo.webp">
                 <div class="media-container">
-                    <img class="media-parallax" src="https://images.unsplash.com/photo-1611162617474-5b21e879e113?auto=format&fit=crop&w=1600&q=80" alt="Interactivos Genially" />
+                    <img class="media-parallax" src="img/interactivo.webp" alt="Interactivos Genially" />
                     <video class="hover-video" muted loop playsinline>
-                        <source src="https://cdn.pixabay.com/video/2019/11/19/29272-374768341_tiny.mp4" type="video/mp4" />
+                        <source src="img/interactivo.mp4" type="video/mp4" />
                     </video>
                     <div class="card-hover-overlay"><span class="hover-text">Ver proyecto ↗</span></div>
                     <span class="card-badge">Factoría / Genially</span>
@@ -267,18 +271,18 @@
                 </div>
             </a>
 
-            <!-- 06. CARD MEDIANA: PRODUCCIÓN DE VIDEOS CON CALIDAD ESTUDIO -->
+            <!-- 06. CARD MEDIANA: PRODUCCIÓN DE VIDEOS CON CALIDAD ESTUDIO (MODIFICADA CON GRILLA) -->
             <a href="#" class="project-card span-5 offset-top card-reveal hover-target"
                data-title="Producción de videos con calidad estudio"
                data-badge="Audiovisual / Animación"
                data-challenge="<p>Las clases magistrales en bruto resultaban en una rápida pérdida de retención visual del alumno.</p>"
                data-solution="<p>Producción de cápsulas de microlearning con calidad de estudio, utilizando motion graphics para explicar conceptos abstractos.</p>"
-               data-impact="<p>Retención de la atención aumentada al 85% promedio por video y reducción de consultas básicas en los foros.</p>"
-               data-img="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1600&q=80">
+               data-impact="<p>Retención de la atención aumentada al 85% promedio por video y reducción de consultas básicas en los foros.</p><h4 class='text-extrabold' style='margin-top:2.5rem; border-bottom: 2px solid var(--border-subtle); padding-bottom: 0.5rem; margin-bottom: 1.5rem;'>Galería de Producciones</h4><div class='modal-gallery balanced-grid'><div class='video-trigger-container lightbox-trigger hover-target' data-video='CeDlI19xGqA'><img src='https://img.youtube.com/vi/CeDlI19xGqA/hqdefault.jpg' alt='Video 1'></div><div class='video-trigger-container lightbox-trigger hover-target' data-video='cSHzJercSpU'><img src='https://img.youtube.com/vi/cSHzJercSpU/hqdefault.jpg' alt='Video 2'></div><div class='video-trigger-container lightbox-trigger hover-target' data-video='jg2roDqV0Qk'><img src='https://img.youtube.com/vi/jg2roDqV0Qk/hqdefault.jpg' alt='Video 3'></div><div class='video-trigger-container lightbox-trigger hover-target' data-video='BT_TAvQwmwo'><img src='https://img.youtube.com/vi/BT_TAvQwmwo/hqdefault.jpg' alt='Video 4'></div><div class='video-trigger-container lightbox-trigger hover-target' data-video='ZbHWWYlrVtI'><img src='https://img.youtube.com/vi/ZbHWWYlrVtI/hqdefault.jpg' alt='Video 5'></div><div class='video-trigger-container lightbox-trigger hover-target' data-video='yX33_ErGLMg'><img src='https://img.youtube.com/vi/yX33_ErGLMg/hqdefault.jpg' alt='Video 6'></div><div class='video-trigger-container lightbox-trigger hover-target' data-video='X083qCvl-9M'><img src='https://img.youtube.com/vi/X083qCvl-9M/hqdefault.jpg' alt='Video 7'></div></div>"
+               data-img="img/videos.webp">
                 <div class="media-container">
-                    <img class="media-parallax" src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=1600&q=80" alt="Producción de Videos" />
+                    <img class="media-parallax" src="img/videos.webp" alt="Producción de Videos" />
                     <video class="hover-video" muted loop playsinline>
-                        <source src="https://cdn.pixabay.com/video/2019/11/15/29166-374246834_tiny.mp4" type="video/mp4" />
+                        <source src="img/video.mp4" type="video/mp4" />
                     </video>
                     <div class="card-hover-overlay"><span class="hover-text">Ver proyecto ↗</span></div>
                     <span class="card-badge">Audiovisual / Animación</span>
@@ -298,11 +302,11 @@
                data-challenge="<p>Apuntes desestructurados y con mala legibilidad que dificultaban la lectura prolongada en dispositivos móviles.</p>"
                data-solution="<p>Rediseño editorial enfocado en la jerarquía visual, uso de espacios en blanco y maquetación amigable para pantallas.</p>"
                data-impact="<p>Mejor experiencia de lectura, destacando un 100% de cumplimiento con las normativas de legibilidad institucional.</p>"
-               data-img="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1600&q=80">
+               data-img="img/apunte.webp">
                 <div class="media-container">
-                    <img class="media-parallax" src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1600&q=80" alt="Apuntes Estructurados" />
+                    <img class="media-parallax" src="img/apunte.webp" alt="Apuntes Estructurados" />
                     <video class="hover-video" muted loop playsinline>
-                        <source src="https://cdn.pixabay.com/video/2021/01/29/63346-512684784_tiny.mp4" type="video/mp4" />
+                        <source src="img/apunte.mp4" type="video/mp4" />
                     </video>
                     <div class="card-hover-overlay"><span class="hover-text">Ver proyecto ↗</span></div>
                     <span class="card-badge">Diseño editorial</span>
