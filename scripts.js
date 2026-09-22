@@ -181,18 +181,6 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     // =========================================================================
-    // 8. VIDEO REVEAL EN HOVER
-    // =========================================================================
-    const projectCards = document.querySelectorAll('.project-card');
-    projectCards.forEach(card => {
-        const video = card.querySelector('.hover-video');
-        if(video) {
-            card.addEventListener('mouseenter', () => video.play());
-            card.addEventListener('mouseleave', () => video.pause());
-        }
-    });
-
-    // =========================================================================
     // 9. MODAL DETALLE PROYECTO & LIGHTBOX (CARRUSEL INTRA-GALERÍA Y VIDEOS)
     // =========================================================================
     const modal = document.querySelector('.project-modal');
@@ -207,6 +195,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const pSolution = document.querySelector('.panel-solution');
     const pImpact = document.querySelector('.panel-impact');
     const pImg = document.querySelector('.panel-img');
+    const projectCards = document.querySelectorAll('.project-card'); // Traído aquí ya que se borró el bloque anterior
 
     if (modal) gsap.set(modal, { xPercent: -50, yPercent: -45 }); 
 
