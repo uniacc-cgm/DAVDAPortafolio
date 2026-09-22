@@ -47,8 +47,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // =========================================================================
     const cursorDot = document.querySelector('.cursor-dot');
     const cursorOutline = document.querySelector('.cursor-outline');
-    // Agregados lightbox-prev y lightbox-next para que tengan hover
-    const hoverTargets = document.querySelectorAll('.hover-target, a, button, .slider-btn, .tab-btn, .lightbox-prev, .lightbox-next');
+    const hoverTargets = document.querySelectorAll('.hover-target, a, button, .slider-btn, .tab-btn');
 
     if (cursorDot && cursorOutline && window.innerWidth > 1024) {
         window.addEventListener('mousemove', (e) => {
@@ -97,7 +96,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================================================================
-    // 5. ANIMACIÓN DE ENTRADA HERO Y PARALLAX
+    // 5. ANIMACIÓN DE ENTRADA HERO Y PARALLAX INVERSO (OPCIÓN 5)
     // =========================================================================
     function initHeroAnimations() {
         gsap.to(".progress-bar", {
@@ -110,8 +109,11 @@ window.addEventListener('DOMContentLoaded', () => {
             scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
         });
 
+        // PARALLAX INVERSO AGRESIVO: Despega rápido al hacer scroll
         gsap.to('.hero-floating-img', {
-            yPercent: 40, rotation: 5, ease: 'none',
+            yPercent: -120, 
+            rotation: 10, 
+            ease: 'none',
             scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
         });
 
@@ -181,7 +183,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     // =========================================================================
-    // 9. MODAL DETALLE PROYECTO & LIGHTBOX (CARRUSEL INTRA-GALERÍA Y VIDEOS)
+    // 8. MODAL DETALLE PROYECTO
     // =========================================================================
     const modal = document.querySelector('.project-modal');
     const panelOverlay = document.querySelector('.project-modal-overlay');
@@ -195,7 +197,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const pSolution = document.querySelector('.panel-solution');
     const pImpact = document.querySelector('.panel-impact');
     const pImg = document.querySelector('.panel-img');
-    const projectCards = document.querySelectorAll('.project-card'); // Traído aquí ya que se borró el bloque anterior
+    const projectCards = document.querySelectorAll('.project-card');
 
     if (modal) gsap.set(modal, { xPercent: -50, yPercent: -45 }); 
 
@@ -205,11 +207,10 @@ window.addEventListener('DOMContentLoaded', () => {
             
             pTitle.textContent = card.dataset.title;
             pBadge.textContent = card.dataset.badge;
-            pImg.src = card.dataset.img;
-            
             pChallenge.innerHTML = card.dataset.challenge;
             pSolution.innerHTML = card.dataset.solution;
             pImpact.innerHTML = card.dataset.impact;
+            pImg.src = card.dataset.img;
 
             if(modalBodyWrapper) modalBodyWrapper.scrollTop = 0; 
             if(modalScrollIndicator) modalScrollIndicator.style.width = '0%';
@@ -237,6 +238,7 @@ window.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // LIGHTBOX
     const lightbox = document.querySelector('.lightbox-overlay');
     const lightboxImg = lightbox?.querySelector('.lightbox-img');
     const lightboxVideoWrap = lightbox?.querySelector('.lightbox-video-wrap');
@@ -327,16 +329,8 @@ window.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    document.addEventListener('keydown', (e) => {
-        if (lightbox && lightbox.classList.contains('active')) {
-            if (e.key === 'ArrowRight') showNextImage();
-            if (e.key === 'ArrowLeft') showPrevImage();
-            if (e.key === 'Escape') closeLightbox();
-        }
-    });
-
     // =========================================================================
-    // 10. LÓGICA DE PESTAÑAS (TABS INTERACTIVAS)
+    // 9. LÓGICA DE PESTAÑAS (TABS INTERACTIVAS)
     // =========================================================================
     const tabButtons = document.querySelectorAll('.tab-btn');
     const tabPanes = document.querySelectorAll('.tab-pane');
@@ -383,7 +377,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     // =========================================================================
-    // 11. METODOLOGÍA (SCROLL HORIZONTAL Y PANEADO DE IMAGEN BG)
+    // 10. METODOLOGÍA (SCROLL HORIZONTAL Y PANEADO DE IMAGEN BG)
     // =========================================================================
     const methodTrack = document.querySelector('.methodology-track');
     
@@ -418,7 +412,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================================================================
-    // 12. CONTROLES DEL CARRUSEL DE TESTIMONIOS
+    // 11. CONTROLES DEL CARRUSEL DE TESTIMONIOS Y ACCESIBILIDAD POR TECLADO
     // =========================================================================
     const nextTestBtn = document.querySelector('.next-btn');
     const prevTestBtn = document.querySelector('.prev-btn');
@@ -436,13 +430,13 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape') { closeModal(); }
+        if (e.key === 'Escape') { closeModal(); closeLightbox(); }
         if (e.key === 'ArrowRight' && !document.querySelector('.lightbox-overlay.active')) { scrollTestimonials(1); } 
         else if (e.key === 'ArrowLeft' && !document.querySelector('.lightbox-overlay.active')) { scrollTestimonials(-1); }
     });
 
     // =========================================================================
-    // 13. ANIMACIÓN DE CASCADA PARA LOS SERVICIOS
+    // 12. ANIMACIÓN DE CASCADA PARA LOS SERVICIOS
     // =========================================================================
     gsap.fromTo('.service-card', 
         { y: 60, opacity: 0 },
@@ -450,7 +444,7 @@ window.addEventListener('DOMContentLoaded', () => {
     );
 
     // =========================================================================
-    // 14. CONTADOR DINÁMICO PARA LAS MÉTRICAS
+    // 13. CONTADOR DINÁMICO PARA LAS MÉTRICAS
     // =========================================================================
     gsap.utils.toArray('.metric-number').forEach((elem) => {
         let target = parseInt(elem.getAttribute('data-target'));
@@ -464,7 +458,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     // =========================================================================
-    // 15. EFECTO DESVANECIMIENTO ESTÁNDAR (FADE-UP)
+    // 14. EFECTO DESVANECIMIENTO ESTÁNDAR (FADE-UP)
     // =========================================================================
     gsap.utils.toArray('.fade-up').forEach((elem) => {
         gsap.fromTo(elem, 
@@ -474,14 +468,14 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     // =========================================================================
-    // 16. PARALLAX DE IMÁGENES DENTRO DE TARJETAS
+    // 15. PARALLAX DE IMÁGENES DENTRO DE TARJETAS
     // =========================================================================
     gsap.utils.toArray('.media-parallax').forEach((media) => {
         gsap.fromTo(media, { yPercent: -15 }, { yPercent: 15, ease: "none", scrollTrigger: { trigger: media.closest('.media-container'), start: "top bottom", end: "bottom top", scrub: true } });
     });
 
     // =========================================================================
-    // 17. SCROLL SUAVE A ENLACES INTERNOS
+    // 16. SCROLL SUAVE A ENLACES INTERNOS
     // =========================================================================
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
