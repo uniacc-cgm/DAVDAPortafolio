@@ -47,7 +47,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // =========================================================================
     const cursorDot = document.querySelector('.cursor-dot');
     const cursorOutline = document.querySelector('.cursor-outline');
-    const hoverTargets = document.querySelectorAll('.hover-target, a, button, .slider-btn, .tab-btn');
+    const hoverTargets = document.querySelectorAll('.hover-target, a, button');
 
     if (cursorDot && cursorOutline && window.innerWidth > 1024) {
         window.addEventListener('mousemove', (e) => {
@@ -96,7 +96,7 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     // =========================================================================
-    // 5. ANIMACIÓN DE ENTRADA HERO Y PARALLAX INVERSO (OPCIÓN 5)
+    // 5. ANIMACIÓN DE ENTRADA HERO Y PARALLAX INVERSO
     // =========================================================================
     function initHeroAnimations() {
         gsap.to(".progress-bar", {
@@ -109,7 +109,7 @@ window.addEventListener('DOMContentLoaded', () => {
             scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 }
         });
 
-        // PARALLAX INVERSO AGRESIVO: Despega rápido al hacer scroll
+        // PARALLAX INVERSO AGRESIVO
         gsap.to('.hero-floating-img', {
             yPercent: -120, 
             rotation: 10, 
@@ -130,7 +130,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
         const tlHero = gsap.timeline({ defaults: { ease: "power4.out" } });
 
-        tlHero.fromTo(".hero-top-meta .hero-anim-meta", 
+        tlHero.fromTo(".hero-top-meta .meta-tag", 
                 { autoAlpha: 0, y: 20 }, 
                 { autoAlpha: 1, y: 0, duration: 1, stagger: 0.1 })
             .fromTo(".hero-title .line-inner", 
@@ -183,11 +183,12 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     // =========================================================================
-    // 8. MODAL DETALLE PROYECTO
+    // 8. MODAL DETALLE PROYECTO (LÓGICA COLOR Y EXTRAS)
     // =========================================================================
     const modal = document.querySelector('.project-modal');
     const panelOverlay = document.querySelector('.project-modal-overlay');
     const closeBtn = document.querySelector('.close-panel');
+    const modalHeader = document.querySelector('.modal-header');
     const modalBodyWrapper = document.querySelector('.modal-body');
     const modalScrollIndicator = document.querySelector('.modal-scroll-indicator');
 
@@ -197,6 +198,7 @@ window.addEventListener('DOMContentLoaded', () => {
     const pSolution = document.querySelector('.panel-solution');
     const pImpact = document.querySelector('.panel-impact');
     const pImg = document.querySelector('.panel-img');
+    const pExtra = document.querySelector('.panel-extra');
     const projectCards = document.querySelectorAll('.project-card');
 
     if (modal) gsap.set(modal, { xPercent: -50, yPercent: -45 }); 
@@ -205,12 +207,46 @@ window.addEventListener('DOMContentLoaded', () => {
         card.addEventListener('click', (e) => {
             e.preventDefault();
             
-            pTitle.textContent = card.dataset.title;
+            pTitle.innerHTML = card.dataset.title;
             pBadge.textContent = card.dataset.badge;
-            pChallenge.innerHTML = card.dataset.challenge;
-            pSolution.innerHTML = card.dataset.solution;
-            pImpact.innerHTML = card.dataset.impact;
+            pChallenge.innerHTML = card.dataset.challenge || '';
+            pSolution.innerHTML = card.dataset.solution || '';
+            pImpact.innerHTML = card.dataset.impact || '';
             pImg.src = card.dataset.img;
+            
+            // Renderización del contenido extra si existe
+            if(pExtra) {
+                pExtra.innerHTML = card.dataset.extra || '';
+                pExtra.style.display = card.dataset.extra ? 'block' : 'none';
+            }
+
+            // Lógica de color dinámica
+            const accentColor = card.dataset.color || 'var(--bg-main)';
+            if (modal) {
+                modalHeader.style.backgroundColor = accentColor;
+                
+                // Remover clases anteriores del modal
+                modal.classList.remove('theme-pink', 'theme-orange', 'theme-blue');
+                
+                // Aplicar clase para manejar variables CSS secundarias y contrastes
+                if (accentColor.includes('pink')) {
+                    modal.classList.add('theme-pink');
+                } else if (accentColor.includes('orange')) {
+                    modal.classList.add('theme-orange');
+                } else if (accentColor.includes('blue')) {
+                    modal.classList.add('theme-blue');
+                }
+                
+                // Inyectar el color de acento a los emojis
+                const tagsDiv = document.querySelector('.modal-tags');
+                if(tagsDiv) {
+                    tagsDiv.style.setProperty('--tag-color', accentColor);
+                }
+            }
+            const impactBlock = document.querySelector('.block-impact');
+            if (impactBlock) {
+                 impactBlock.style.borderColor = accentColor;
+            }
 
             if(modalBodyWrapper) modalBodyWrapper.scrollTop = 0; 
             if(modalScrollIndicator) modalScrollIndicator.style.width = '0%';
@@ -377,7 +413,7 @@ window.addEventListener('DOMContentLoaded', () => {
     });
 
     // =========================================================================
-    // 10. METODOLOGÍA (SCROLL HORIZONTAL Y PANEADO DE IMAGEN BG)
+    // 10. METODOLOGÍA (SCROLL HORIZONTAL Y PANEADO HASTA EL BORDE FINAL)
     // =========================================================================
     const methodTrack = document.querySelector('.methodology-track');
     
@@ -399,13 +435,14 @@ window.addEventListener('DOMContentLoaded', () => {
         const methodBg = document.querySelector('.methodology-bg-img');
         if(methodBg) {
             gsap.to(methodBg, {
-                xPercent: -20, 
+                x: () => -(methodBg.offsetWidth - window.innerWidth), 
                 ease: "none",
                 scrollTrigger: {
                     trigger: ".methodology-section",
                     start: "top top",
                     end: () => "+=" + methodTrack.offsetWidth,
-                    scrub: 1
+                    scrub: 1,
+                    invalidateOnRefresh: true 
                 }
             });
         }
@@ -487,4 +524,49 @@ window.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    // =========================================================================
+    // 17. LÓGICA DE PLATAFORMA STREAMING (PLAYLIST EN MODAL)
+    // =========================================================================
+    document.addEventListener('click', (e) => {
+        const playlistItem = e.target.closest('.playlist-item');
+        
+        if (playlistItem) {
+            const videoId = playlistItem.dataset.video;
+            const masterPlayer = document.getElementById('master-video-player');
+            
+            if (masterPlayer && videoId) {
+                masterPlayer.src = `https://www.youtube.com/embed/${videoId}?autoplay=1&rel=0`;
+                
+                const container = playlistItem.closest('.playlist-carousel');
+                
+                container.querySelectorAll('.playlist-item').forEach(item => {
+                    item.classList.remove('active');
+                    item.querySelector('.play-overlay').innerHTML = '▶';
+                });
+                
+                playlistItem.classList.add('active');
+                playlistItem.querySelector('.play-overlay').innerHTML = 'Reproduciendo';
+            }
+        }
+    });
+
+    if (closeBtn || panelOverlay) {
+        const originalCloseFunc = closeModal;
+        closeModal = function() {
+            const masterPlayer = document.getElementById('master-video-player');
+            if (masterPlayer) {
+                masterPlayer.src = ''; 
+            }
+            originalCloseFunc();
+        };
+        if(closeBtn) {
+            closeBtn.removeEventListener('click', originalCloseFunc);
+            closeBtn.addEventListener('click', closeModal);
+        }
+        if(panelOverlay) {
+            panelOverlay.removeEventListener('click', originalCloseFunc);
+            panelOverlay.addEventListener('click', closeModal);
+        }
+    }
 });
